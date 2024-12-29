@@ -1,15 +1,17 @@
+console.log('welcome.js carregado');
 document.addEventListener('DOMContentLoaded', async () => {
     // Inicializar ícones Lucide
     lucide.createIcons();
 
     // Inicializar cliente Supabase
-    const supabase = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
-    const supabaseClient = supabase; // Added to make supabaseClient available
+    const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
     // Verificar se o usuário está autenticado
-    const { data: { session } } = await supabase.auth.getSession();
+    const { data: { session } } = await supabaseClient.auth.getSession();
+    console.log('Sessão:', session);
 
     if (!session) {
+        console.log('Usuário não autenticado, redirecionando para login');
         // Se não estiver autenticado, redirecionar para a página de login
         window.location.href = 'index.html';
         return;
@@ -20,12 +22,11 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     // Adicionar funcionalidade ao botão de logout
     document.getElementById('logoutButton').addEventListener('click', async () => {
-        console.log('Botão de logout clicado'); // Added console.log
         try {
-            const { error } = await supabase.auth.signOut(); // Update: using supabase instead of supabaseClient
+            console.log('Iniciando logout...');
+            const { error } = await supabaseClient.auth.signOut();
             if (error) throw error;
             console.log('Logout bem-sucedido');
-            alert('Logout realizado com sucesso. Redirecionando para a página de login...');
             window.location.href = 'index.html';
         } catch (error) {
             console.error('Erro ao fazer logout:', error.message);
