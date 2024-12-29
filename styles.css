@@ -1,0 +1,315 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box !important;
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    position: relative;
+    overflow: hidden;
+    line-height: 1.5;
+    background-color: #171717;
+    color: #FEFEFE;
+    font-size: 16px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    margin: 0;
+}
+
+.lines {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    margin: auto;
+    width: 90vw;
+    z-index: 1;
+}
+
+.line {
+    position: absolute;
+    width: 1px;
+    height: 100%;
+    top: 0;
+    left: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    overflow: hidden;
+}
+
+.line::after {
+    content: '';
+    display: block;
+    position: absolute;
+    height: 15vh;
+    width: 100%;
+    top: -50%;
+    left: 0;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, #ffffff 75%, #ffffff 100%);
+    animation: drop 7s 0s infinite;
+    animation-fill-mode: forwards;
+    animation-timing-function: cubic-bezier(0.4, 0.26, 0, 0.97);
+}
+
+.line:nth-child(1) {
+    margin-left: -25%;
+}
+
+.line:nth-child(1)::after {
+    animation-delay: 2s;
+}
+
+.line:nth-child(3) {
+    margin-left: 25%;
+}
+
+.line:nth-child(3)::after {
+    animation-delay: 2.5s;
+}
+
+@keyframes drop {
+    0% {
+        top: -50%;
+    }
+    100% {
+        top: 110%;
+    }
+}
+
+canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    filter: url(#liquid);
+    z-index: 2;
+}
+
+#liquidCanvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+}
+
+.container {
+    position: absolute;
+    width: 100%;
+    max-width: 400px;
+    padding: 20px;
+    z-index: 3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-card {
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 12px;
+    padding: 40px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.login-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
+}
+
+h1 {
+    font-size: 28px;
+    margin-bottom: 24px;
+    text-align: center;
+    color: #fff;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.input-group {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    color: #ccc;
+    margin-bottom: 8px;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+}
+
+.icon {
+    margin-right: 8px;
+    width: 18px;
+    height: 18px;
+}
+
+input {
+    width: 100%;
+    padding: 12px;
+    padding-left: 40px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 6px;
+    font-size: 16px;
+    color: #fff;
+    background-color: rgba(255, 255, 255, 0.1);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+input:focus {
+    outline: none;
+    border-color: #60a5fa;
+    box-shadow: 0 0 0 2px rgba(96, 165, 250, 0.2);
+}
+
+.toggle-password {
+    position: absolute;
+    right: 12px;
+    top: 38px;
+    background: none;
+    border: none;
+    color: #ccc;
+    cursor: pointer;
+}
+
+button[type="submit"] {
+    width: 100%;
+    padding: 12px;
+    background-color: #60a5fa;
+    color: #ffffff;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.1s ease;
+}
+
+button[type="submit"]:hover {
+    background-color: #3b82f6;
+}
+
+button[type="submit"]:active {
+    transform: scale(0.98);
+}
+
+.forgot-password {
+    text-align: center;
+    margin-top: 16px;
+}
+
+.forgot-password a {
+    color: #60a5fa;
+    text-decoration: none;
+    font-size: 14px;
+    transition: color 0.3s ease;
+}
+
+.forgot-password a:hover {
+    color: #3b82f6;
+    text-decoration: underline;
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 10px;
+    }
+
+    .login-card {
+        padding: 30px;
+    }
+}
+
+.welcome-card {
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 12px;
+    padding: 40px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    max-width: 500px;
+    width: 100%;
+}
+
+.welcome-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
+}
+
+.welcome-message {
+    font-size: 18px;
+    margin-bottom: 24px;
+    text-align: center;
+    color: #fff;
+}
+
+.quick-actions {
+    margin-top: 24px;
+}
+
+.quick-actions h2 {
+    font-size: 20px;
+    margin-bottom: 16px;
+    color: #fff;
+}
+
+.quick-actions ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.quick-actions li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 12px;
+    color: #fff;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.quick-actions li:hover {
+    color: #60a5fa;
+}
+
+.quick-actions .icon {
+    margin-right: 12px;
+}
+
+.logout-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 12px;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.1s ease;
+    margin-top: 24px;
+}
+
+.logout-button:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.logout-button:active {
+    transform: scale(0.98);
+}
+
+.logout-button .icon {
+    margin-right: 8px;
+}
+

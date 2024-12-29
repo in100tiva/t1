@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Gestão de Turmas</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
+    <script src="config.js"></script>
+</head>
+<body>
+    <svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+        <defs>
+            <filter id="liquid">
+                <feGaussianBlur in="SourceGraphic" stdDeviation="12" result="blur" />
+                <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 40 -10"/>
+            </filter>
+        </defs>
+    </svg>
+    <div class="lines">
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+    </div>
+    <canvas id="liquidCanvas"></canvas>
+    <div class="container">
+        <div class="login-card">
+            <h1>Gestão de Turmas</h1>
+            <form id="loginForm">
+                <div class="input-group">
+                    <label for="email">
+                        <i data-lucide="mail" class="icon"></i>
+                        E-mail
+                    </label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="input-group">
+                    <label for="password">
+                        <i data-lucide="lock" class="icon"></i>
+                        Senha
+                    </label>
+                    <input type="password" id="password" name="password" required>
+                    <button type="button" id="togglePassword" class="toggle-password">
+                        <i data-lucide="eye" class="icon"></i>
+                    </button>
+                </div>
+                <button type="submit">Entrar</button>
+            </form>
+            <p class="forgot-password"><a href="#">Esqueceu a senha?</a></p>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
+

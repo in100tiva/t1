@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bem-vindo - Gestão de Turmas</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
+    <script src="config.js"></script>
+</head>
+<body>
+    <svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+        <defs>
+            <filter id="liquid">
+                <feGaussianBlur in="SourceGraphic" stdDeviation="12" result="blur" />
+                <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 40 -10"/>
+            </filter>
+        </defs>
+    </svg>
+    <div class="lines">
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+    </div>
+    <canvas id="liquidCanvas"></canvas>
+    <div class="container">
+        <div class="welcome-card">
+            <h1>Bem-vindo à Gestão de Turmas</h1>
+            <p class="welcome-message">Olá, <span id="userName">Usuário</span>! É ótimo ter você aqui.</p>
+            <div class="quick-actions">
+                <h2>Ações Rápidas</h2>
+                <ul>
+                    <li><i data-lucide="users" class="icon"></i> Ver Turmas</li>
+                    <li><i data-lucide="calendar" class="icon"></i> Agendar Aula</li>
+                    <li><i data-lucide="file-text" class="icon"></i> Relatórios</li>
+                    <li><i data-lucide="settings" class="icon"></i> Configurações</li>
+                </ul>
+            </div>
+            <button id="logoutButton" class="logout-button">
+                <i data-lucide="log-out" class="icon"></i>
+                Sair
+            </button>
+        </div>
+    </div>
+    <script src="welcome.js"></script>
+</body>
+</html>
+

@@ -1,0 +1,3 @@
+const SUPABASE_URL = 'https://fmmqcqlthulspexjlaaj.supabase.co';
+const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZtbXFjcWx0aHVsc3BleGpsYWFqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzU0NTEwNDMsImV4cCI6MjA1MTAyNzA0M30.rCRKQ97NZKfDHyWmGWLkkEv981l4-XH9X_irbsqokyY';
+
